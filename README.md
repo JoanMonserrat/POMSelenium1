@@ -21,6 +21,13 @@ On every `push` to the `main` branch:
 - Tests are executed using `pytest`
 - You can view results in the **Actions** tab on GitHub
 
+## HTML report:
+After the workflow run and HTML report will be generated. Can find it:
+- Select workflow run
+- Below in the "artifacts" section report can be downloaded
+- Open the file, usually using google chrome to see the report.
+
+
 ---
 
 ## ✅ Test Cases
