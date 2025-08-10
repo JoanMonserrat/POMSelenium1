@@ -1,6 +1,14 @@
 from pages.cart_page import CartPage
 from pages.login_page import LoginPage
 
+def test_logout(driver):
+    login = LoginPage(driver)
+    login.login("standard_user", "secret_sauce")
+
+    cart = CartPage(driver)
+    cart.logout()
+
+    assert "index.html" in driver.current_url
 
 def test_order_price(driver):
     login = LoginPage(driver)
