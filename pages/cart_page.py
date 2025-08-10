@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.ie.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions
@@ -15,6 +17,11 @@ class CartPage:
         self.inventory_item = (By.CSS_SELECTOR, ".inventory_item")
         self.left_menu = (By.XPATH, '//button[text()="Open Menu"]')
         self.logout_button = (By.ID, "logout_sidebar_link")
+        self.first_inventory_item = (By.XPATH, "//div[@class='inventory_list']//div[1]//div[3]//button[1]")
+        self.second_inventory_item = (By.XPATH, "//div[@class='inventory_list']//div[2]//div[3]//button[1]")
+        self.third_inventory_item = (By.XPATH, "//div[@class='inventory_list']//div[3]//div[3]//button[1]")
+        self.number_products = (By.XPATH, "//span[@class='fa-layers-counter shopping_cart_badge']")
+
 
     def select_sort_option(self, visible_text):
         sort_list = self.driver.find_element(*self.sort_locator)
@@ -40,6 +47,19 @@ class CartPage:
         logout_button.click()
 
         print("Current URL after logout:", self.driver.current_url)
+
+    def add_3_first_products(self):
+        self.driver.find_element(*self.first_inventory_item).click()
+        self.driver.find_element(*self.second_inventory_item).click()
+        self.driver.find_element(*self.third_inventory_item).click()
+
+        wait = WebDriverWait(self.driver, 10)
+        badge = wait.until(expected_conditions.visibility_of_element_located(self.number_products))
+        products_in_cart = int(badge.text)
+
+        return products_in_cart
+
+
 
 
 
