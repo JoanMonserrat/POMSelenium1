@@ -22,7 +22,7 @@ On every `push` to the `main` branch:
 - You can view results in the **Actions** tab on GitHub
 
 ## HTML report:
-After the workflow run and HTML report will be generated. Can find it:
+After the workflow run on a push, HTML report will be generated. Can find it in:
 - Select workflow run
 - Below in the "artifacts" section report can be downloaded
 - Open the file, usually using google chrome to see the report.
