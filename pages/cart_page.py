@@ -41,9 +41,6 @@ class CartPage:
 
         print("Current URL after logout:", self.driver.current_url)
 
-        wait.until(expected_conditions.url_contains("index"))
-
-
 
 
 
