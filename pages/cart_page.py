@@ -41,8 +41,11 @@ class CartPage:
         return prices
 
     def logout(self):
-        self.driver.find_element(*self.left_menu).click()
         wait = WebDriverWait(self.driver, 10)
+
+        menu_button = wait.until(expected_conditions.element_to_be_clickable(self.left_menu))
+        menu_button.click()
+
         logout_button = wait.until(expected_conditions.element_to_be_clickable(self.logout_button))
         logout_button.click()
 
