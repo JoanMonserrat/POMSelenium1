@@ -10,7 +10,7 @@ Website under test: https://www.saucedemo.com/v1/
   - Python ✅
   - Pytest (fixtures, setup, teardown) ✅
   - Page object model ✅
-  - Report generation, pytest-html
+  - Report generation, pytest-html ✅
   - Continuos Integration (Github Actions) ✅
 
 ## Continuos Integration (CI):
