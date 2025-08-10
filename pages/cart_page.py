@@ -46,6 +46,7 @@ class CartPage:
         menu_button = wait.until(expected_conditions.element_to_be_clickable(self.left_menu))
         menu_button.click()
 
+        wait.until(expected_conditions.visibility_of_element_located(self.logout_button))
         logout_button = wait.until(expected_conditions.element_to_be_clickable(self.logout_button))
         logout_button.click()
 
