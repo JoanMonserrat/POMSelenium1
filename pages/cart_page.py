@@ -18,7 +18,7 @@ class CartPage:
 
     def get_prices_list(self):
         prices = []
-        prices_list = self.driver.find_elements(*self.inventory_list)
+        prices_list = self.driver.find_element(*self.inventory_list)
         items = prices_list.find_elements(*self.inventory_item)
 
         for item in items:
