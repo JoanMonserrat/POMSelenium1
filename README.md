@@ -42,4 +42,5 @@ After the workflow run on a push, HTML report will be generated. Can find it in:
 | TC6  | Add Products               | Adds the first 3 products to the shopping cart                     |
 | TC7  | Remove Product from Inventory | Removes products from the product listing page before adding to cart |
 | TC8  | Remove Product from Cart   | Removes products from within the shopping cart page after adding  |
-| TC9  | Checkout                  | User completes checkout and verifies total price matches sum of products |
+| TC9  | Checkout                  | Completes checkout and verifies that total price matches sum of products |
+
