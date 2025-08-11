@@ -32,9 +32,10 @@ After the workflow run on a push, HTML report will be generated. Can find it in:
 
 ## ✅ Test Cases
 
-| ID   | Name             | Description                                   |
-|------|------------------|-----------------------------------------------|
-| TC1  | Login Successful | User logs in with valid credentials           |
-| TC2  | Login Failed     | Login attempt with invalid username/password  |
-| TC3  | Login Blank      | Login attempt without entering credentials    |
-| TC4  | Cart Sort        | Cart is correctly sorted by price (low to high) |
+ID	Name	Description
+TC1	Login Successful	User logs in with valid credentials
+TC2	Login Failed	Login attempt with invalid username or password
+TC3	Login Blank	Login attempt without entering credentials
+TC4	Logout	User logs in and successfully logs out
+TC5	Cart Sorting	Products are sorted correctly by price (low to high)
+TC6	Add Products	Adds the first 3 products to the shopping cart
