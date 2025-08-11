@@ -17,10 +17,10 @@ class CartPage:
         self.inventory_item = (By.CSS_SELECTOR, ".inventory_item")
         self.left_menu = (By.XPATH, '//button[text()="Open Menu"]')
         self.logout_button = (By.ID, "logout_sidebar_link")
-        self.first_inventory_item = (By.XPATH, "//div[@class='inventory_list']//div[1]//div[3]//button[1]")
-        self.second_inventory_item = (By.XPATH, "//div[@class='inventory_list']//div[2]//div[3]//button[1]")
-        self.third_inventory_item = (By.XPATH, "//div[@class='inventory_list']//div[3]//div[3]//button[1]")
-        self.number_products = (By.XPATH, "//span[@class='fa-layers-counter shopping_cart_badge']")
+        self.first_inventory_item = (By.XPATH, "(//button[contains(@class, 'btn_inventory')])[1]")
+        self.second_inventory_item = (By.XPATH, "(//button[contains(@class, 'btn_inventory')])[2]")
+        self.third_inventory_item = (By.XPATH, "(//button[contains(@class, 'btn_inventory')])[3]")
+        self.number_products = (By.CSS_SELECTOR, "span.shopping_cart_badge")
 
 
     def select_sort_option(self, visible_text):
@@ -53,9 +53,30 @@ class CartPage:
         print("Current URL after logout:", self.driver.current_url)
 
     def add_3_first_products(self):
+        print(self.driver.current_url)
+        time.sleep(5)
         self.driver.find_element(*self.first_inventory_item).click()
+        time.sleep(5)
         self.driver.find_element(*self.second_inventory_item).click()
+        time.sleep(5)
         self.driver.find_element(*self.third_inventory_item).click()
+        time.sleep(5)
+
+        badge_elements = self.driver.find_elements(*self.number_products)
+        print(f"Badge elements found: {len(badge_elements)}")
+
+        wait = WebDriverWait(self.driver, 10)
+        badge = wait.until(expected_conditions.presence_of_element_located (self.number_products))
+        products_in_cart = int(badge.text)
+
+        return products_in_cart
+
+
+    def remove_first_product(self):
+        wait = WebDriverWait(self.driver, 10)
+        remove_buttons = wait.until(expected_conditions.presence_of_all_elements_located((By.XPATH, "//button[text()='Remove']")))
+
+        remove_buttons[0].click()
 
         wait = WebDriverWait(self.driver, 10)
         badge = wait.until(expected_conditions.visibility_of_element_located(self.number_products))
